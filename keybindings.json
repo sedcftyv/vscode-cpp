@@ -1,0 +1,13 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    {
+        "key": "f10",
+        "command": "workbench.action.focusNextPart"
+    },
+    {
+        "key": "f6",
+        "command": "workbench.action.tasks.runTask",
+        "args": "C++ Build and Run",
+        "when": "debugState == 'inactive' && editorTextFocus && editorLangId =~ /^(c|(cuda-)?cpp)$/"
+    }    
+]

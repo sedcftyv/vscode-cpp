@@ -1,0 +1,89 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C++: cl.exe debug",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/std:c++17",
+                "/EHsc",
+                "/nologo",
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "debug",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C++: cl.exe release",
+            "command": "cl.exe",
+            "args": [
+                "/std:c++17",
+                // "/O2",
+                "/EHsc",
+                "/nologo",
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "release",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C++: run",
+            "command": "Start-Process",
+            "args": [
+                "cmd",
+                "/c .\\${fileBasenameNoExtension}.exe & pause"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "C++ Build and Run",
+            "dependsOn": [
+                "C++: cl.exe release",
+                "C++: run"
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        }
+    ]
+}
