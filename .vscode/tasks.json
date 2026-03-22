@@ -81,6 +81,7 @@
                 "C++: cl.exe release",
                 "C++: run"
             ],
+            "dependsOrder": "sequence",
             "problemMatcher": [
                 "$msCompile"
             ]
